@@ -2,14 +2,14 @@
  *   The cup you want to show 
  *
  */
-jarEl.src ='https://cdn.discordapp.com/attachments/373534361481641987/560571258396213300/tallgainscup.png';
+jarEl.src ='https://i.imgur.com/H7Yb4Sw.png';
 
 
 /**
  * The invisible walls. Transparent background
  *
  */
-this.cupBarrierImg =  'https://i.imgur.com/LCqxAzc.png';
+this.cupBarrierImg = 'https://i.imgur.com/H7Yb4Sw.png'; 
 
  
 this.config.jar.type = "custom";
@@ -42,7 +42,7 @@ window.scriptDaddy.MAX_SCANNING_ATTEMPTS = 360000;
 scriptDaddy.createBarrier = function(imgUrl){
   window.canvas = null;
   window.ctx = null;
-  window.threshold = 1;
+  window.threshold = 1; //keep at 1 for now.
   var blobimg = new Image();
   $(blobimg).css('opacity', 0);
   $(document.body).append(blobimg);
