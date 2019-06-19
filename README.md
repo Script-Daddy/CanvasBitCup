@@ -15,6 +15,7 @@ Some guidelines for creating the **wall** image:
 - Make the wall image on a separate layer so you can export both with the same resolution. That will also help with positioning.
 - Colors dont matter. The mod just looks for parts that are not fully transparent. 
 - Use a brush set to around 30px. There were be slight accuracy lost so focus more on broad strokes
+- Bits will always drop right down the middle of the image.
 
 
 
