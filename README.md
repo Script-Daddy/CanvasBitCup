@@ -1,4 +1,5 @@
-# CanvasBitCup
+
+# <img src="logo.png"  width="100px"/>CanvasBitCup
 Streamlabs Tip Jar mod made for artists. 
 
 
@@ -36,6 +37,9 @@ Once both images are ready:
 
 ![visual setup guide](visual_setup_guide.png)
 
+
+Remember to click save in Streamlabs when you are satisfied with what you see!
+
 ## I want to see what you create!
 Feel free to [tweet](https://twitter.com/_Script_Daddy_) at me with your creations! I love seeing what people come up with!
 
@@ -43,6 +47,9 @@ I can also be found on [Twitch](https://www.twitch.tv/script_daddy)
 
 ## FAQ
 
+Q: It seems to take a few seconds for the walls to be created. Is that normal?
+
+A: Yes, the more you draw, the more it has to process. Consider redrawing the walls if you see groups of blocks that are not going to be useful.
 
 Q: Do I need to know how to code to set this up?
 
@@ -53,7 +60,7 @@ Q: When I click on Test, the walls come out as oddly shaped blocks. Is this norm
 A: Yes! This was done because of difficulties with adding walls that were oddly shaped. This is a compromise in design that reduces accuracy of the resulting walls but gives larger benefits to performance and is actually less buggy for curved shapes.
 
 
-Q: Why is my test jar missing large sections of the walls i drew? 
+Q: Why is my wall missing large sections of the walls i drew? 
 
 A: In rare cases, an image with small complex details will take too long to map out. To prevent severe lag, there is a point where it will abandon the grouping and move on to looking for other groupings. There are countermeasures in place to prevent this and I have not been able to force it to occur since. 
 
