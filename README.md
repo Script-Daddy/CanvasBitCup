@@ -5,6 +5,10 @@ Streamlabs Tip Jar mod made for artists.
 
 The concept is simple: You have two images. One is a **visual** image that everyone will see on your stream. The other is the **wall** image this mod will use to generate the barriers that bits and other objects bounce off of.
 
+Tool that will upload the images and add the links to the code for you. Supports background and foreground images (both are technically optional):
+https://script-daddy.github.io/CanvasBitCup/
+
+
 Example:
 
 **Visual** Image: https://i.imgur.com/uOJDOjO.png
