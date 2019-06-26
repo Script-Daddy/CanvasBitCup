@@ -557,12 +557,11 @@
 
 
 
-        $('#main_loader').hide();
-        var imageFiles = $(".imageFile");
 
+
+        var imageFiles = $(".imageFile");
         const endpoint = "https://api.imgur.com/3/image";
         var settings = {
-              async: false,
               crossDomain: true,
               processData: false,
               contentType: false,
@@ -580,22 +579,19 @@
           var imageFile = this;
 
 
+          var preview = $(imageFile).closest('.card').find('.imgPreview');
+          preview.html('');
+
+          $(imageFile).closest('.card').find('.template-parameter.imageLink').val('');
 
           var $files = $(this).get(0).files;
 
           if ($files.length) {
 
-            var preview = $(imageFile).parent().find('.imgPreview');
-            preview.html('');
 
             var loading = $('<span>', {class:'spinner-border'});
             preview.append(loading);
 
-           // Reject big files
-            if ($files[0].size > $(this).data("max-size") * 1024) {
-              console.log("Please select a smaller file");
-              return false;
-            }
 
             var formData = new FormData();
             formData.append("image", $files[0]);
@@ -604,49 +600,32 @@
 
             $.ajax(settings).done(function(response) {
               var respObj = JSON.parse(response);
-              console.log(respObj);
-              $(imageFile).parent().find('.imgPreview .spinner-border').hide();
-
-              var preview = $(imageFile).parent().find('.imgPreview');
               preview.html('');
+
               var img = $('<img>', {src:respObj.data.link});
               preview.append(img);
-              $(imageFile).parent().find('.template-parameter.imageLink').val(respObj.data.link);
+              $(imageFile).closest('.card').find('.template-parameter.imageLink').val(respObj.data.link);
               updateTemplates();
+              addAlert('success', {message:"Image added! To undo this, click 'Browse' then 'Cancel'"});
 
             }).fail(function(response){
-              console.log(response.responseText);
-              $(imageFile).parent().find('.imgPreview .spinner-border').hide();
+              preview.html('');
               addAlert('error', {message:response.responseText});
             });
+          }else{
+                updateTemplates();
           }
+
+
+
         });
       });
     })(jQuery);
   </script>
+
+
+
   <style>
-    body{
-      background-color: #c1e0f9;
-    }
-    .imgPreview img{
-      max-width: 100%;
-      max-height: inherit;
-    }
-
-    .images .card {
-      height: 300px;
-    }
-    .imgPreview {
-      max-width: 100%;
-      position: relative;
-      max-height: 100%;
-      display: inherit;
-    }
-
-    #finished-code textarea {
-      width:100%;
-    }
-
 
     @keyframes spinner-border {
       to { transform: rotate(360deg); }
@@ -698,9 +677,46 @@
       height: 15px;
     }
 
+    .jumbotron{
+      color: #212529;
+    }
 
 
     </style>
+
+
+
+  <style>
+    body{
+      background-color: #0f0f3c;
+      color: white;
+    }
+    .card {
+      color:black;
+    }
+    .imgPreview img{
+      max-width: 100%;
+      max-height: inherit;
+    }
+
+    .images .card {
+      height: 300px;
+    }
+    .imgPreview {
+      max-width: 100%;
+      position: relative;
+      max-height: 100%;
+      display: inherit;
+    }
+
+    #finished-code textarea {
+      width:100%;
+    }
+
+  </style>
+
+
+
     <script id="errorTemplate"  type="text/x-handlebars-template">
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         Error occurred, please screenshot/send the following error message (if any):
@@ -720,83 +736,111 @@
       </div>
     </script>
   </head>
-  <body class="container">
-    <h1>Canvas Bit Cup</h1>
+  <body >
 
-    <span>Select the image files you use to use. This tool will upload them to imgur and add the link into the code for you.</span>
-
-    <div id="alert-placeholder">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Canvas Bit Cup</h1>
+        <p class="lead">  Source available for download <a href="https://github.com/Script-Daddy/CanvasBitCup">here</a>.</p>
+      </div>
     </div>
 
+    <div class="container">
+      <div class="">
 
 
-    <span id="main_loader" class="loading loading-spinner-large inline-block"></span>
 
 
+      <div id="alert-placeholder">
+      </div>
 
-    <h4>Images</h4>
-    <div class="row images">
 
-      <section id="foregroundImage" class="col-xl">
-        <div class="card">
-          <span class="card-header">Foreground Image</span>
-          <input class="imageFile form-control" type="file" />
-          <input type="hidden" name="foreground" class="template-parameter imageLink"/>
-          <div class="imgPreview">
+    </div>
+    
+      <h4>Images</h4>
+      <p>
+        Select the image files you use to use.
+        This tool will upload them to <a href="https://imgur.com/">Imgur</a> and add the link into the code for you.
+
+      </p>
+      <div class="row images">
+
+        <section id="foregroundImage" class="col-xl">
+          <div class="card">
+            <span class="card-header">Foreground Image</span>
+            <div class="custom-file">
+              <input id="foregroundImageInput" class="imageFile form-control custom-file-input"
+                type="file" />
+              <label class="custom-file-label" for="foregroundImageInput">Choose file</label>
+            </div>
+            <input type="hidden" name="foreground" class="template-parameter imageLink"/>
+            <div class="imgPreview">
+            </div>
+          </div>
+        </section>
+
+        <section id="backgroundImage" class="col-xl">
+          <div class="card">
+            <span class="card-header">Background Image</span>
+            <div class="custom-file">
+              <input id="backgroundImageInput" class="imageFile form-control custom-file-input" type="file" />
+              <label class="custom-file-label" for="backgroundImageInput">Choose file</label>
+            </div>
+            <input type="hidden" name="background" class="template-parameter imageLink"/>
+            <div class="imgPreview">
           </div>
         </div>
-      </section>
-      <section id="backgroundImage" class="col-xl">
-        <div class="card">
-          <span class="card-header">Background Image</span>
-          <input class="imageFile form-control" type="file" />
-          <input type="hidden" name="background" class="template-parameter imageLink"/>
-          <div class="imgPreview">
-        </div>
+        </section>
+
+        <section id ="wallImage" class="col-xl">
+          <div class="card">
+             <span class="card-header">Wall Image <span class="font-italic"> (Will be invisible when the Tip Jar is running)</span></span>
+             <div class="custom-file">
+               <input id="wallImageInput" class="imageFile form-control custom-file-input" type="file" />
+               <label class="custom-file-label" for="wallImageInput">Choose file</label>
+             </div>
+             <input type="hidden" name="wall" class="template-parameter imageLink"/>
+             <div class="imgPreview">
+          </div>
+         </div>
+        </section>
       </div>
-      </section>
-      <section id ="wallImage" class="col-xl">
-        <div class="card">
-           <span class="card-header">Wall Image   <span class="font-italic"> (Will be invisible when the Tip Jar is running)</span></span>
-           <input class="imageFile form-control" type="file" />
-           <input type="hidden" name="wall" class="template-parameter imageLink"/>
-           <div class="imgPreview">
-        </div>
-       </div>
-      </section>
-    </div>
 
 
 
 
 
-    <h4>Finished Code</h4>
-    <p>Goto the Tip Jar in Streamlabs and enable Custom HTML/CSS. Replace the contents of the HTML, CSS, and JS tabs in Streamlabs with the code below.</p>
-    <div id="finished-code" class="row">
+      <h4 class="mt-4">Finished Code</h4>
+      <p>Goto the Tip Jar in Streamlabs and enable Custom HTML/CSS. Replace the contents of the HTML, CSS, and JS tabs in Streamlabs with the code below.</p>
+      <div id="finished-code" class="row">
 
-      <section class="col-xl">
-        <h5 class="float-left">HTML</h5>
-        <a tabindex="0" class="btn btn-light copy-popover float-right" data-placement="left"
-        role="button" onclick="copyTextArea(this)" data-toggle="popover" data-content="Contents copied!">Copy</a>
+        <section class="col-xl">
+          <div class="card">
+               <label for="htmlOutput" class="card-header">HTML</label>
+            <textarea readonly class="templated" name="htmlTemplate" id="htmlOutput" rows="10"></textarea>
+            <a tabindex="0" class="btn btn-light copy-popover float-right" data-placement="bottom"
+            role="button" onclick="copyTextArea(this)" data-toggle="popover" data-content="Contents copied!">Copy</a>
+          </div>
+        </section>
 
+        <section class="col-xl">
+          <div class="card">
+             <label for="cssOutput" class="card-header">CSS</label>
+            <textarea readonly class="templated" name="cssTemplate" id="cssOutput" rows="10"></textarea>
+            <a tabindex="0" class="btn btn-light copy-popover float-right"  data-placement="bottom"
+            role="button" onclick="copyTextArea(this)" data-toggle="popover" data-content="Contents copied!">Copy</a>
+          </div>
+        </section>
 
-        <textarea readonly class="templated" name="htmlTemplate" id="htmlOutput" rows="10"></textarea>
-
-      </section>
-
-      <section class="col-xl">
-        <h5 class="float-left">CSS</h5>
-        <a tabindex="0" class="btn btn-light copy-popover float-right"  data-placement="left"
-        role="button" onclick="copyTextArea(this)" data-toggle="popover" data-content="Contents copied!">Copy</a>
-        <textarea readonly class="templated" name="cssTemplate" id="CssOutput" rows="10"></textarea>
-      </section>
-
-      <section class="col-xl">
-        <h5 class="float-left">JS</h5>
-        <a tabindex="0" class="btn btn-light copy-popover float-right"  data-placement="left"
-        role="button" onclick="copyTextArea(this)" data-toggle="popover" data-content="Contents copied!">Copy</a>
-        <textarea readonly class="templated" name="jsTemplate" id="JsOutput" rows="10"></textarea>
-      </section>
+        <section class="col-xl">
+          <div class="card">
+             <label for="jsOutput" class="card-header">JS</label>
+            <textarea readonly class="templated" name="jsTemplate" id="jsOutput" rows="10"></textarea>
+            <a tabindex="0" class="btn btn-light copy-popover float-right"  data-placement="bottom"
+            role="button" onclick="copyTextArea(this)" data-toggle="popover" data-content="Contents copied!">Copy</a>
+          </div>
+        </section>
+      </div>
     </div>
   </body>
 </html>
