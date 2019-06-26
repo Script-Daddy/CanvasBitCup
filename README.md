@@ -1,11 +1,11 @@
 
 # <img src="logo.png"  width="100px"/>CanvasBitCup
-Streamlabs Tip Jar mod made for artists. 
+Streamlabs Tip Jar mod made for artists.
 
 
 The concept is simple: You have two images. One is a **visual** image that everyone will see on your stream. The other is the **wall** image this mod will use to generate the barriers that bits and other objects bounce off of.
 
-Tool that will upload the images and add the links to the code for you. Supports background and foreground images (both are technically optional):
+Here is a tool that will upload the images and add the links to the code for you. Supports background and foreground images (both are technically optional):
 https://script-daddy.github.io/CanvasBitCup/
 
 
@@ -17,8 +17,9 @@ Example:
 
 Some guidelines for creating the **wall** image:
 - Make the wall image on a separate layer so you can export both with the same resolution. That will also help with positioning.
-- Colors dont matter. The mod just looks for parts that are not fully transparent. 
-- Use a brush set to around 30px. There were be slight accuracy lost so focus more on broad strokes
+- Colors don't matter. The mod just looks for parts that are not fully transparent.
+- Use a brush set to around 30px. There were be slight accuracy lost so focus more on broad strokes.
+- Avoid making lines that go right to the edge. There have been some difficulties processing those.
 - Bits will always drop right down the middle of the image.
 
 
@@ -27,11 +28,11 @@ Some guidelines for creating the **wall** image:
 
 
 Once both images are ready:
-- Export as png (other formats should work as well but png was what I did all my testing with).
-- Use imgur to upload the images (there were issues when trying to use images hosted as discord links. imgur has been working without issue.)
+- Export as PNG (other formats should work as well but png was what I did all my testing with).
+- Use Imgur to upload the images (there were issues when trying to use images hosted as discord links. imgur has been working without issue.)
 - Right click on the images in imgur and select *Open image in new tab*.
 - Copy the link in the address bar.
-- Open streamlabs and navigate to the Tip Jar. 
+- Open Streamlabs and navigate to the Tip Jar.
 - Next to *Enable Custom HTML/CSS* select Enabled.
 - Ignore the HTML tab, if there is anything in it just delete the contents of it.
 - Click on CSS and replace the contents of the editor with what is currently in [this](./src/CSS.css).
@@ -60,14 +61,14 @@ Q: Do I need to know how to code to set this up?
 
 A: No! I have spent days trying to make everything about this as simple as possible so that anyone can follow the instructions to set it up. I will be trying to find ways to make it even easier for people.
 
-Q: When I click on Test, the walls come out as oddly shaped blocks. Is this normal? 
+Q: When I click on Test, the walls come out as oddly shaped blocks. Is this normal?
 
 A: Yes! This was done because of difficulties with adding walls that were oddly shaped. This is a compromise in design that reduces accuracy of the resulting walls but gives larger benefits to performance and is actually less buggy for curved shapes.
 
 
-Q: Why is my wall missing large sections of the walls i drew? 
+Q: Why is my wall missing large sections of the walls i drew?
 
-A: In rare cases, an image with small complex details will take too long to map out. To prevent severe lag, there is a point where it will abandon the grouping and move on to looking for other groupings. There are countermeasures in place to prevent this and I have not been able to force it to occur since. 
+A: In rare cases, an image with small complex details will take too long to map out. To prevent severe lag, there is a point where it will abandon the grouping and move on to looking for other groupings. There are countermeasures in place to prevent this and I have not been able to force it to occur since.
 
 
 Q: Does the wall image have to match parts of the visual image?
@@ -78,31 +79,3 @@ A: NOPE! You can make them completely separate drawings with no overlap between 
 Q: My walls are slightly offset from the visual image by a noticeable amount, is this normal?
 
 A: This has been a tricky bug that I have been trying to fix. Right now, just update your **wall** image by moving it slightly in the opposite direction. I have never been able to replicate it on my machine but I have seen this happen to a couple of friends in different browsers. It is a strange bug.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
