@@ -2,61 +2,61 @@
   color: black; 
 }
 
-.stream-poll.active {
+.stream-poll.custom {
     width: 400px;
     border-style: solid;
     border-width: 27px;
-    border-image: url(/img/themes/stream-poll.active/bg.png) 27 fill stretch;
+    border-image: url(/img/themes/stream-poll.custom/bg.png) 27 fill stretch;
     opacity: 0;
     padding: 0;
     transition: opacity 1s
 }
 
-.stream-poll.active .inner {
+.stream-poll.custom .inner {
     margin: -20px
 }
 
-.stream-poll.active.topLeft {
+.stream-poll.custom.topLeft {
     margin-left: 20px;
     margin-top: 20px
 }
 
-.stream-poll.active.topCenter {
+.stream-poll.custom.topCenter {
     margin-top: 20px
 }
 
-.stream-poll.active.topRight {
+.stream-poll.custom.topRight {
     margin-right: 30px;
     margin-top: 20px
 }
 
-.stream-poll.active.middleLeft {
+.stream-poll.custom.middleLeft {
     margin-left: 20px
 }
 
-.stream-poll.active.middleRight {
+.stream-poll.custom.middleRight {
     margin-right: 20px
 }
 
-.stream-poll.active.bottomLeft {
+.stream-poll.custom.bottomLeft {
     margin-left: 20px;
     margin-bottom: 20px
 }
 
-.stream-poll.active.bottomCenter {
+.stream-poll.custom.bottomCenter {
     margin-bottom: 20px
 }
 
-.stream-poll.active.bottomRight {
+.stream-poll.custom.bottomRight {
     margin-right: 20px;
     margin-bottom: 20px
 }
 
-.stream-poll.active .metaInfo {
+.stream-poll.custom .metaInfo {
     padding: 0 10px
 }
 
-.stream-poll.active .duration,.stream-poll.active .total {
+.stream-poll.custom .duration,.stream-poll.custom .total {
     float: left;
     width: 49%;
     text-align: center;
@@ -65,41 +65,41 @@
     border-radius: 5px
 }
 
-.stream-poll.active .duration strong,.stream-poll.active .total strong {
+.stream-poll.custom .duration strong,.stream-poll.custom .total strong {
     color: #ffa
 }
 
-.stream-poll.active .total {
+.stream-poll.custom .total {
     margin-right: 2%
 }
 
-.stream-poll.active.finished .options li,.stream-poll.active.removing .options li {
+.stream-poll.custom.finished .options li,.stream-poll.custom.removing .options li {
     opacity: .3;
     transition: all 1s
 }
 
-.stream-poll.active.finished .options li.highest,.stream-poll.active.removing .options li.highest {
+.stream-poll.custom.finished .options li.highest,.stream-poll.custom.removing .options li.highest {
     color: #ffa;
     opacity: 1
 }
 
-.stream-poll.active.finished .options li.highest .bar .bar-inner,.stream-poll.active.removing .options li.highest .bar .bar-inner {
+.stream-poll.custom.finished .options li.highest .bar .bar-inner,.stream-poll.custom.removing .options li.highest .bar .bar-inner {
     background: #ffa
 }
 
-.stream-poll.active.finished .options li.help,.stream-poll.active.removing .options li.help {
+.stream-poll.custom.finished .options li.help,.stream-poll.custom.removing .options li.help {
     height: 0
 }
 
-.stream-poll.active.finished .metaInfo,.stream-poll.active.removing .metaInfo {
+.stream-poll.custom.finished .metaInfo,.stream-poll.custom.removing .metaInfo {
     opacity: .3
 }
 
-.stream-poll.active.active .options li.help {
+.stream-poll.custom.active .options li.help {
     height: 35px
 }
 
-.stream-poll.active .options li {
+.stream-poll.custom .options li {
     position: relative;
     border: 1px;
     padding: 10px;
@@ -110,13 +110,13 @@
     font-size: 20px
 }
 
-.stream-poll.active .options li.question {
+.stream-poll.custom .options li.question {
     padding: 10px;
     font-size: 20px;
     white-space: normal;
     clear: both;
     line-height: 1.3;
-    background: url(/img/themes/stream-poll.active/header.png);
+    background: url(/img/themes/stream-poll.custom/header.png);
     background-size: 100% 100%;
     color: #fff;
     font-size: 25px;
@@ -124,7 +124,7 @@
     text-transform: uppercase
 }
 
-.stream-poll.active .options li.help {
+.stream-poll.custom .options li.help {
     color: #ffa;
     padding: 0;
     background: 0 0;
@@ -133,18 +133,18 @@
     height: 0
 }
 
-.stream-poll.active .options li.help span {
+.stream-poll.custom .options li.help span {
     display: block;
     padding: 10px
 }
 
-.stream-poll.active .options li .procent {
+.stream-poll.custom .options li .procent {
     position: absolute;
     top: 10px;
     right: 15px
 }
 
-.stream-poll.active .options li .number {
+.stream-poll.custom .options li .number {
     padding: 5px 10px;
     border-radius: 5px;
     background: rgba(0,0,0,.3);
@@ -155,7 +155,7 @@
     left: 10px
 }
 
-.stream-poll.active .options li .bar {
+.stream-poll.custom .options li .bar {
     background: rgba(0,0,0,.5);
     border-radius: 5px;
     height: 5px;
@@ -163,7 +163,7 @@
     border: 1px solid rgba(255,255,255,.1)
 }
 
-.stream-poll.active .options li .bar .bar-inner {
+.stream-poll.custom .options li .bar .bar-inner {
     background: #fff;
     height: 100%;
     width: 0;
@@ -172,13 +172,14 @@
     border-radius: 5px
 }
 
-.stream-poll.active .options li .text {
+.stream-poll.custom .options li .text {
     line-height: 1.3
 }
 
-.stream-poll.active.active,.stream-poll.active.finished {
+.stream-poll.custom.active,.stream-poll.custom.finished {
     opacity: 1
 }
+ 
  
  
  
