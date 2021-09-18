@@ -4155,12 +4155,10 @@ li.option .procent, li.option .number{
 }
 
 .stream-poll.active, .stream-poll.finished{
-  opacity:0.85 !important;
-  top: 256px !important;
-  width: 37%;
+  opacity:0.85 !important; 
 }
 
-.stream-poll.removing{
+.stream-poll.removing,.stream-poll.active, .stream-poll.finished{
   top: 256px !important;
   width: 37%;
 }
