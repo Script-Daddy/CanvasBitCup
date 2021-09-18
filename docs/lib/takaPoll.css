@@ -4140,8 +4140,9 @@ li.option .bar{
 li.option span.text{
   display:inline-block;
   text-align:center;
-  width: 100%;
-  font-size: 42px !important; 
+  margin: 0px 5%;
+  width: 90%;
+  font-size: 42px !important;
 }
 
 li.option .procent, li.option .number{
