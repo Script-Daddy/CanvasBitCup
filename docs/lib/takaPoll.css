@@ -4107,6 +4107,7 @@ body {
 
 .question{
   font-size: 42px !important; 
+  text-transform: none !important;
 
 }
 
@@ -4116,8 +4117,6 @@ body {
     animation-iteration-count:3;
     transform-origin: center bottom;
     background: none !important;
-
-    text-transform: none !important;
 }
 
 .removing{
