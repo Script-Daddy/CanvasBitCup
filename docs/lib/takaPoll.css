@@ -4085,9 +4085,9 @@ body {
     background-size: 100px 100px;
     background-image: linear-gradient(to right, gray 1px, transparent 1px), linear-gradient(to bottom, gray 1px, transparent 1px);
     background-color: #d6cece;
-    */
+    
     background:url(https://cdn.discordapp.com/attachments/874095753478418442/888649660141547520/Voting_Mockup.png) right top/ 1920px 1080px no-repeat
-     
+    */ 
 }
 
 .rocketleague .options li .number{
@@ -4104,7 +4104,8 @@ body {
 }
 
 .question{
-  font-size: 42px !important; 
+  font-size: 42px !important;
+  background: none !important;
   text-transform: none !important;
 }
 
@@ -4187,15 +4188,20 @@ li.option .procent, li.option .number{
   position: absolute !important;
   /* float:right; */
   /* height: 0px; */
+  width: 100%;
+  display: inline-block;
   bottom: 18px;
 }
 
 .help span{
- /* width:100%; */
- /* position:fixed; */
+ width:100%;
+ position: relative;
  /* bottom:0; */
- padding: 3px !important;
- font-size:29px !important;
+ padding: 0px !important;
+ font-size: 38px !important;
+ text-align:center !important;
+ display: block !important;
+ /* margin: 0 auto !important; */
 }
  
  .credits{
