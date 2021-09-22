@@ -4170,9 +4170,10 @@ li.option .procent, li.option .number{
 
 }
 
-.inner{
+ .stream-poll, .inner{
   background-color: #37284f;
   margin: 7px !important;
+  z-index:0;
 }
 
 .rocketleague {
