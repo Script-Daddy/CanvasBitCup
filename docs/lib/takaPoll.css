@@ -4085,10 +4085,8 @@ body {
     background-size: 100px 100px;
     background-image: linear-gradient(to right, gray 1px, transparent 1px), linear-gradient(to bottom, gray 1px, transparent 1px);
     background-color: #d6cece;
-  */
-  /*
-    background:url(https://cdn.discordapp.com/attachments/874095753478418442/888649660141547520/Voting_Mockup.png) right top/ 1920px 1080px no-repeat;
-  */
+    */
+    background:url(https://cdn.discordapp.com/attachments/874095753478418442/888649660141547520/Voting_Mockup.png) right top/ 1920px 1080px no-repeat
      
 }
 
@@ -4108,7 +4106,6 @@ body {
 .question{
   font-size: 42px !important; 
   text-transform: none !important;
-
 }
 
 .active .question{
@@ -4117,6 +4114,8 @@ body {
     animation-iteration-count:3;
     transform-origin: center bottom;
     background: none !important;
+
+
 }
 
 .removing{
@@ -4126,9 +4125,9 @@ body {
 }
 
 li.option{
-  background-color: #0b4b71;
+  background-color: #8a78ac;
   border-radius:25px;
-  margin:5px;
+  margin: 5px;
   }
 
 li.option .bar{
@@ -4158,8 +4157,9 @@ li.option .procent, li.option .number{
 }
 
 .stream-poll.removing,.stream-poll.active, .stream-poll.finished{
-  top: 256px !important;
+  top: 184px !important;
   width: 37%;
+  padding-bottom: 53px;
 }
 
 .active .option.highest{
@@ -4168,3 +4168,36 @@ li.option .procent, li.option .number{
     animation-duration: 1s;
 
 }
+
+.inner{
+  background-color: #37284f;
+  margin: 7px !important;
+}
+
+.rocketleague {
+      border-width: 10px;
+      border-style: solid;
+      border-image:none;
+      border-spacing: 22px;
+      border-radius:5px;
+      border-color: #8a78ac !important;
+}
+
+.help{
+  position: absolute !important;
+  /* float:right; */
+  /* height: 0px; */
+  bottom: 18px;
+}
+
+.help span{
+ /* width:100%; */
+ /* position:fixed; */
+ /* bottom:0; */
+ padding: 3px !important;
+ font-size:29px !important;
+}
+ 
+ .credits{
+   display:none;
+ }
