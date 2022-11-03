@@ -7,7 +7,13 @@ body {
     linear-gradient(to right, gray 1px, transparent 1px),
     linear-gradient(to bottom, gray 1px, transparent 1px);
   */
- 
+  /*
+    background-size: 100px 100px;
+    background-image: linear-gradient(to right, gray 1px, transparent 1px), linear-gradient(to bottom, gray 1px, transparent 1px);
+    background-color: #d6cece;
+    
+    background:url(https://cdn.discordapp.com/attachments/1011374574761422991/1034923991544123402/ADADW.png) right top/ 1920px 1080px no-repeat
+    */
   /* background: url(https://cdn.discordapp.com/attachments/874095753478418442/1036828841903136778/All_Together.png) 386px 255px/ 1903px 1071px no-repeat; */
   }
 
@@ -267,13 +273,26 @@ li.option .procent{
   display:none;
 }
 
-.stream-poll.active *, .stream-poll.finished *{
+.stream-poll.active *{
   opacity:1 !important;
   position: relative;
 }
 
+
+ .stream-poll.finished li > :not(.highest){
+  opacity:0.8 !important;
+
+}
+
+.stream-poll.finished li .bar{
+ opacity:0 !important
+}
+
+ 
+
+
 .stream-poll.removing *{
-  opacity:0.85 !important; 
+  opacity:0.0 !important; 
 }
 
 
@@ -409,7 +428,12 @@ li.option{
   width: var(--options-contracted-width);
   height: var(--options-contracted-height);
 }
+
+.stream-poll.removing{
+
+ opacity:0;
  
+} 
  
 .active  ul.options  {
        animation-name: expandPanel;  
